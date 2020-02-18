@@ -1,0 +1,8 @@
+/* 
+    universal selector targets all tags in the HTML document 
+    removes default padding and margin of all HTML elements 
+*/ 
+* {
+    padding: 0;
+    margin: 0;
+}
