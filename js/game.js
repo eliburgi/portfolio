@@ -20,3 +20,9 @@ app.renderer.view.style.position = "absolute";
 app.renderer.view.style.display = "block";
 app.renderer.autoResize = true;
 app.renderer.resize(window.innerWidth, window.innerHeight);
+
+// setup game-loop
+app.ticker.add(dt => gameLoop(dt));
+function gameLoop(dt) {
+    console.log("update " + dt);
+}
