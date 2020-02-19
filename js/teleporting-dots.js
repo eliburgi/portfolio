@@ -16,9 +16,38 @@ class Dot {
         this.y = 0;
         this.radius = 10;
         this.color = 0xffffff;
+        this.startX = 0;
+        this.startY = 0;
+        this.targetX = 0;
+        this.targetY = 0;
+        this.moving = false;
+        this.moveDuration = 0; // in milliseconds
+        this.elapsedMoveDuration = 0; // in milliseconds
+    }
+
+    setTargetPosition(x, y) {
+        this.startX = this.x;
+        this.startY = this.y;
+        this.targetX = x;
+        this.targetY = y;
+        this.moving = true;
+        this.elapsedMoveDuration = 0;
     }
 
     update(dt) {
+        if (!this.moving) return;
+
+        this.elapsedMoveDuration += dt;
+        let progress = this.elapsedMoveDuration / this.moveDuration;
+        if (progress < 1) {
+            this.x = this.startX + progress * (this.targetX - this.startX);
+            this.y = this.startY + progress * (this.targetY - this.startY);
+        } else {
+            // dot has arrived at target position
+            this.x = this.targetX;
+            this.y = this.targetY;
+            this.moving = false;
+        }
     }
 
     render(graphics) {
@@ -36,18 +65,22 @@ function createInitialDots() {
 }
 
 function createRandomDot() {
-    let width = canvasWidth();
-    let height = canvasHeight();
     let newDot = new Dot();
-    newDot.radius = width * 4 / 640;
-    newDot.x = random(0, width);
-    newDot.y = random(0, height);
+    newDot.radius = canvasWidth() * 4 / 640;
+    newDot.x = randomX();
+    newDot.y = randomY();
     newDot.color = randomColor();
+    newDot.moveDuration = random(10, 30);
     return newDot;
 }
 
 function updateDots(dt) {
     dots.forEach(function (dot) {
+        if (!dot.moving) {
+            let x = randomX();
+            let y = randomY();
+            dot.setTargetPosition(x, y);
+        }
         dot.update(dt);
         dot.render(dotsGraphics);
     });
@@ -95,6 +128,14 @@ function canvasHeight() {
 
 function random(inclusive, exclusive) {
     return inclusive + Math.random() * (exclusive - inclusive);
+}
+
+function randomX() {
+    return random(0, canvasWidth());
+}
+
+function randomY() {
+    return random(0, canvasHeight());
 }
 
 function randomColor() {
