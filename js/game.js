@@ -18,7 +18,6 @@ app.renderer.backgroundColor = kBackgroundColor;
 // make the canvas fill the entire window
 app.renderer.view.style.position = "absolute";
 app.renderer.view.style.display = "block";
-app.renderer.autoResize = true;
 app.renderer.resize(window.innerWidth, window.innerHeight);
 
 // setup game-loop
