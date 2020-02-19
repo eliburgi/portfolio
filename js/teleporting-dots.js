@@ -1,7 +1,7 @@
 // canvas background color
 const kBackgroundColor = 0x000028;
 // number of dots that will be created
-const kInitialDotCount = 30;
+const kInitialDotCount = 50;
 
 // the PIXI application
 var app;
@@ -14,15 +14,24 @@ class Dot {
     constructor() {
         this.x = 0;
         this.y = 0;
+        this.endX = 0;
+        this.endY = 0;
         this.radius = 10;
         this.color = 0xffffff;
         this.startX = 0;
         this.startY = 0;
         this.targetX = 0;
         this.targetY = 0;
+        this.cornerX = 0;
+        this.cornerY = 0;
+        this.startRatio = 0;
+        this.targetRatio = 0;
+        this.cornerRatio = 0;
         this.moving = false;
         this.moveDuration = 0; // in milliseconds
         this.elapsedMoveDuration = 0; // in milliseconds
+        this.dx = 0;
+        this.dy = 0;
     }
 
     setTargetPosition(x, y) {
@@ -30,8 +39,24 @@ class Dot {
         this.startY = this.y;
         this.targetX = x;
         this.targetY = y;
+        this.dx = this.targetX - this.startX;
+        this.dy = this.targetY - this.startY;
         this.moving = true;
         this.elapsedMoveDuration = 0;
+
+        if (random(0, 1) < 0.5) {
+            // position relay point such that the dot moves 
+            // horizontally first and then vertically 
+            this.cornerX = this.startX + this.dx;
+            this.cornerY = this.startY;
+            this.cornerRatio = abs(this.dx) / (abs(this.dx) + abs(this.dy));
+        } else {
+            // position relay point such that the dot moves 
+            // vertically first and then horizontally 
+            this.cornerX = this.startX;
+            this.cornerY = this.startY + this.dy;
+            this.cornerRatio = abs(this.dy) / (abs(this.dx) + abs(this.dy));
+        }
     }
 
     update(dt) {
@@ -40,7 +65,7 @@ class Dot {
         this.elapsedMoveDuration += dt;
         let progress = this.elapsedMoveDuration / this.moveDuration;
         if (progress < 1) {
-            this._moveManhattan(progress);
+            this._move(progress);
         } else {
             // dot has arrived at target position
             this.x = this.targetX;
@@ -50,8 +75,25 @@ class Dot {
     }
 
     render(graphics) {
-        graphics.beginFill(this.color);
-        graphics.drawCircle(this.x, this.y, this.radius);
+        if (this.moving) {
+            graphics.beginFill(this.color);
+            graphics.drawCircle(this.x, this.y, this.radius);
+            graphics.drawCircle(this.endX, this.endY, this.radius);
+            graphics.endFill();
+
+            graphics.lineStyle(2 * this.radius, this.color);
+            graphics.moveTo(this.x, this.y);
+            if (this.startRatio < this.cornerRatio &&
+                this.cornerRatio < this.targetRatio) {
+                graphics.lineTo(this.cornerX, this.cornerY);
+            }
+            graphics.lineTo(this.endX, this.endY);
+            graphics.lineStyle(0);
+        } else {
+            graphics.beginFill(this.color);
+            graphics.drawCircle(this.x, this.y, this.radius);
+            graphics.endFill();
+        }
     }
 
     _moveLinear(progress) {
@@ -59,20 +101,28 @@ class Dot {
         this.y = this.startY + progress * (this.targetY - this.startY);
     }
 
-    _moveManhattan(progress) {
-        let dx = Math.abs(this.targetX - this.startX);
-        let dy = Math.abs(this.targetY - this.startY);
-        if (dx == 0 && dy == 0) return;
+    _move(progress) {
+        this.startRatio = 1 - Math.pow(progress - 1, 2);
+        this.targetRatio = 1 - Math.pow(progress - 1, 4);
 
-        let ratioX = dx / (dx + dy);
-        let ratioY = dy / (dx + dy);
+        if (this.startRatio < this.cornerRatio) {
+            let ratio = this.startRatio / this.cornerRatio;
+            this.x = this.startX + ratio * (this.cornerX - this.startX);
+            this.y = this.startY + ratio * (this.cornerY - this.startY);
+        } else {
+            let ratio = (this.startRatio - this.cornerRatio) / (1 - this.cornerRatio);
+            this.x = this.cornerX + ratio * (this.targetX - this.cornerX);
+            this.y = this.cornerY + ratio * (this.targetY - this.cornerY);
+        }
 
-        if (0 < ratioX && progress < ratioX) {
-            let progressX = progress / ratioX;
-            this.x = this.startX + progressX * (this.targetX - this.startX);
-        } else if (0 < ratioY && progress >= ratioX) {
-            let progressY = (progress - ratioX) / ratioY;
-            this.y = this.startY + progressY * (this.targetY - this.startY);
+        if (this.targetRatio < this.cornerRatio) {
+            let ratio = this.targetRatio / this.cornerRatio;
+            this.endX = this.startX + ratio * (this.cornerX - this.startX);
+            this.endY = this.startY + ratio * (this.cornerY - this.startY);
+        } else {
+            let ratio = (this.targetRatio - this.cornerRatio) / (1 - this.cornerRatio);
+            this.endX = this.cornerX + ratio * (this.targetX - this.cornerX);
+            this.endY = this.cornerY + ratio * (this.targetY - this.cornerY);
         }
     }
 }
@@ -87,11 +137,11 @@ function createInitialDots() {
 
 function createRandomDot() {
     let newDot = new Dot();
-    newDot.radius = canvasWidth() * 4 / 640;
+    newDot.radius = canvasWidth() * 2 / 1080;
     newDot.x = randomX();
     newDot.y = randomY();
     newDot.color = randomColor();
-    newDot.moveDuration = random(10, 30);
+    newDot.moveDuration = random(25, 50);
     return newDot;
 }
 
@@ -102,7 +152,7 @@ function updateDots(dt) {
 
         // let the mouse control the dots
         if (!dot.moving) {
-            let probability = 0.1;
+            let probability = 0.05;
             if (random(0, 1) < probability) {
                 let x = randomX();
                 let y = randomY();
@@ -144,6 +194,10 @@ app.ticker.add(dt => gameLoop(dt));
 function gameLoop(dt) {
     dotsGraphics.clear();
     updateDots(dt);
+}
+
+function abs(num) {
+    return Math.abs(num);
 }
 
 function canvasWidth() {
