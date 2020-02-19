@@ -10,7 +10,7 @@ let app = new PIXI.Application({
 });
 
 // add the canvas that Pixi automatically created to the HTML page
-document.body.appendChild(app.view);
+document.getElementById("canvas-container").appendChild(app.view);
 
 // use a nice background color for the canvas
 app.renderer.backgroundColor = kBackgroundColor;
@@ -18,6 +18,7 @@ app.renderer.backgroundColor = kBackgroundColor;
 // make the canvas fill the entire window
 app.renderer.view.style.position = "absolute";
 app.renderer.view.style.display = "block";
+app.renderer.autoDensity = true;
 app.renderer.resize(window.innerWidth, window.innerHeight);
 
 // setup game-loop
