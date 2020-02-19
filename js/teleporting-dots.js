@@ -40,8 +40,7 @@ class Dot {
         this.elapsedMoveDuration += dt;
         let progress = this.elapsedMoveDuration / this.moveDuration;
         if (progress < 1) {
-            this.x = this.startX + progress * (this.targetX - this.startX);
-            this.y = this.startY + progress * (this.targetY - this.startY);
+            this._moveManhattan(progress);
         } else {
             // dot has arrived at target position
             this.x = this.targetX;
@@ -53,6 +52,28 @@ class Dot {
     render(graphics) {
         graphics.beginFill(this.color);
         graphics.drawCircle(this.x, this.y, this.radius);
+    }
+
+    _moveLinear(progress) {
+        this.x = this.startX + progress * (this.targetX - this.startX);
+        this.y = this.startY + progress * (this.targetY - this.startY);
+    }
+
+    _moveManhattan(progress) {
+        let dx = Math.abs(this.targetX - this.startX);
+        let dy = Math.abs(this.targetY - this.startY);
+        if (dx == 0 && dy == 0) return;
+
+        let ratioX = dx / (dx + dy);
+        let ratioY = dy / (dx + dy);
+
+        if (0 < ratioX && progress < ratioX) {
+            let progressX = progress / ratioX;
+            this.x = this.startX + progressX * (this.targetX - this.startX);
+        } else if (0 < ratioY && progress >= ratioX) {
+            let progressY = (progress - ratioX) / ratioY;
+            this.y = this.startY + progressY * (this.targetY - this.startY);
+        }
     }
 }
 
@@ -76,13 +97,20 @@ function createRandomDot() {
 
 function updateDots(dt) {
     dots.forEach(function (dot) {
-        if (!dot.moving) {
-            let x = randomX();
-            let y = randomY();
-            dot.setTargetPosition(x, y);
-        }
         dot.update(dt);
         dot.render(dotsGraphics);
+
+        // let the mouse control the dots
+        if (!dot.moving) {
+            let probability = 0.1;
+            if (random(0, 1) < probability) {
+                let x = randomX();
+                let y = randomY();
+                dot.setTargetPosition(x, y);
+            }
+        }
+        // check if mouse clicked
+        // otherwise attract to mouse
     });
 }
 
