@@ -1,1 +1,10 @@
 
+/* a card displaying information about a certain work of mine*/
+.card-work {
+    min-width: 200px;
+    max-width: 300px;
+    min-height: 200px;
+    max-height: 500px;
+    background-color: indianred;
+}
+
