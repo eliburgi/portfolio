@@ -39,6 +39,7 @@ section {
     top: 50%;
     top: 50vh;
     transform: translateY(-50%);
-    /* left margin */
-    left: 4em;
+
+    padding: 5em;
+    background: radial-gradient(#000028cc, #00002800);
 }
