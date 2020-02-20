@@ -185,7 +185,7 @@ document.getElementById("canvas-container").appendChild(app.view);
 app.renderer.backgroundColor = kBackgroundColor;
 
 // make the canvas fill the entire window
-app.renderer.view.style.position = "absolute";
+app.renderer.view.style.position = "fixed";
 app.renderer.view.style.display = "block";
 app.renderer.resize(window.innerWidth, window.innerHeight);
 app.renderer.autoDensity = true;
