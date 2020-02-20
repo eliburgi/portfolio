@@ -40,6 +40,10 @@ section {
     top: 50vh;
     transform: translateY(-50%);
 
+    /* 
+        add a dark gradient such that the teleporting dots 
+        that are drawn below the title are not that distracting
+    */
     padding: 5em;
     background: radial-gradient(#000028cc, #00002800);
 }
