@@ -25,6 +25,8 @@ h1 {
 
 /* a section fills the whole viewport */
 section {
+    display: flex;
+
     /* fallback for older browsers */
     width: 100%;
     height: 100%;
@@ -35,17 +37,27 @@ section {
 }
 
 /* the section´s title which is displayed in the left-center of the viewport */
+.section-title-col {
+    float: left;
+    width: 30vw;
+}
+
+.section-content-col {
+    float: left;
+    width: 100%;
+    height: 100%;
+}
+
 .section-title {
     position: relative;
     /* center vertically */
     top: 50%;
     top: 50vh;
     transform: translateY(-50%);
-
+    padding: 5em;
     /* 
         add a dark gradient such that the teleporting dots 
         that are drawn below the title are not that distracting
     */
-    padding: 5em;
     background: radial-gradient(#000028cc, #00002800);
 }
