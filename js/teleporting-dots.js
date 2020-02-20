@@ -141,7 +141,7 @@ function createRandomDot() {
     newDot.x = randomX();
     newDot.y = randomY();
     newDot.color = randomColor();
-    newDot.moveDuration = random(25, 50);
+    newDot.moveDuration = random(100, 150);
     return newDot;
 }
 
@@ -152,7 +152,7 @@ function updateDots(dt) {
 
         // let the mouse control the dots
         if (!dot.moving) {
-            let probability = 0.05;
+            let probability = 0.005;
             if (random(0, 1) < probability) {
                 let x = randomX();
                 let y = randomY();
