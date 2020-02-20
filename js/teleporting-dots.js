@@ -2,6 +2,8 @@
 const kBackgroundColor = 0x000028;
 // number of dots that will be created
 const kInitialDotCount = 50;
+// if true, the dots interact with the mouse (cursor position)
+const kEnableMouseControls = false;
 
 // the PIXI application
 var app;
@@ -149,9 +151,15 @@ function updateDots(dt) {
     dots.forEach(function (dot) {
         dot.update(dt);
         dot.render(dotsGraphics);
+        if (dot.moving) return;
 
-        // let the mouse control the dots
-        if (!dot.moving) {
+        if (kEnableMouseControls) {
+            // with some chance attract the dot to the mouse cursor
+            let attractRadius = canvasWidth() / 4;
+            // TODO: implement if needed
+        } else {
+            // with some chance select a completely new
+            // random target for the dot within the canvas
             let probability = 0.005;
             if (random(0, 1) < probability) {
                 let x = randomX();
@@ -159,8 +167,6 @@ function updateDots(dt) {
                 dot.setTargetPosition(x, y);
             }
         }
-        // check if mouse clicked
-        // otherwise attract to mouse
     });
 }
 
