@@ -3,12 +3,14 @@
 const myWork = [
     {
         title: 'sQrz',
+        desc: 'A highly addictive puzzle-game.',
         img: 'img/work/sQrz.png'
     },
     {
         title: 'Celery With Me',
+        desc: 'Inspired by @medicalmedium. For every celery lover out there.',
+        img: 'img/work/celery_with_me.png',
         fontFamily: 'Pacifico',
-        img: 'img/work/celery_with_me.png'
     },
     {
         title: 'sQrz',
@@ -49,20 +51,6 @@ const myWork = [
     {
         title: 'sQrz',
         img: 'img/work/sQrz.png'
-    },
-    {
-        title: 'Celery With Me',
-        fontFamily: 'Pacifico',
-        img: 'img/work/celery_with_me.png'
-    },
-    {
-        title: 'sQrz',
-        img: 'img/work/sQrz.png'
-    },
-    {
-        title: 'Celery With Me',
-        fontFamily: 'Pacifico',
-        img: 'img/work/celery_with_me.png'
     }
 ];
 
@@ -95,7 +83,11 @@ function _buildWorkCard(work) {
     title.innerHTML = work.title || 'no_title';
     content.appendChild(title);
 
-    content.innerHTML += "adsad <br> adsda <br> asd <br> adsad <br> adsda <br> asd";
+    if (work.desc) {
+        content.innerHTML += work.desc;
+    } else {
+        content.innerHTML += "adsad <br> adsda <br> asd <br> adsad <br> adsda <br> asd";
+    }
 
     return card;
 }
