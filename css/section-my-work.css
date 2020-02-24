@@ -42,6 +42,22 @@
     text-align: center;
 }
 
+.card-work-overlay {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000028cc;
+    overflow: hidden;
+    height: 0;
+    transition: .3s ease;
+}
+
+.card-work:hover .card-work-overlay {
+    height: 100%;
+}
+
 .card-work h1 {
     color: #FCFCE1;
     font-family: 'Raleway';

@@ -89,5 +89,10 @@ function _buildWorkCard(work) {
         content.innerHTML += "adsad <br> adsda <br> asd <br> adsad <br> adsda <br> asd";
     }
 
+    var overlay = document.createElement('div');
+    overlay.setAttribute('class', 'card-work-overlay');
+    overlay.innerHTML = 'Hallo';
+    card.appendChild(overlay);
+
     return card;
 }
