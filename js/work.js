@@ -13,7 +13,7 @@ const myWork = [
         title: 'Celery With Me',
         desc: 'Inspired by @medicalmedium. For every celery lover out there.',
         img: 'img/work/celery_with_me.png',
-        githubUrl: 'TODO',
+        githubUrl: 'https://github.com/eliburgi/celerywithme',
         playStoreUrl: 'TODO',
         fontFamily: 'Pacifico'
     },
@@ -108,6 +108,9 @@ function _buildWorkCard(work) {
     if (work.githubUrl) {
         var githubButton = document.createElement('button');
         githubButton.setAttribute('class', 'icon-button');
+        githubButton.onclick = function () { 
+            _launchUrl(work.githubUrl);
+        };
         overlayContent.appendChild(githubButton);
         var githubIcon = document.createElement('i');
         githubIcon.setAttribute('class', 'fa fa-github fa-3x');
@@ -117,6 +120,9 @@ function _buildWorkCard(work) {
     if (work.playStoreUrl) {
         var googlePlayButton = document.createElement('button');
         googlePlayButton.setAttribute('class', 'icon-button');
+        googlePlayButton.onclick = function () { 
+            _launchUrl(work.playStoreUrl);
+        };
         overlayContent.appendChild(googlePlayButton);
         var googlePlayIcon = document.createElement('i');
         googlePlayIcon.setAttribute('class', 'fa fa-android fa-3x');
@@ -126,6 +132,9 @@ function _buildWorkCard(work) {
     if (work.appStoreUrl) {
         var appStoreButton = document.createElement('button');
         appStoreButton.setAttribute('class', 'icon-button');
+        appStoreButton.onclick = function () { 
+            _launchUrl(work.appStoreUrl);
+        };
         overlayContent.appendChild(appStoreButton);
         var appStoreIcon = document.createElement('i');
         appStoreIcon.setAttribute('class', 'fa fa-apple fa-3x');
@@ -133,4 +142,8 @@ function _buildWorkCard(work) {
     }
 
     return card;
+}
+
+function _launchUrl(url) {
+    window.open(url);
 }
