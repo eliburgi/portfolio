@@ -160,7 +160,7 @@ function updateDots(dt) {
         } else {
             // with some chance select a completely new
             // random target for the dot within the canvas
-            let probability = 0.005;
+            let probability = 0.001;
             if (random(0, 1) < probability) {
                 let x = randomX();
                 let y = randomY();

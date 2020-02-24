@@ -38,7 +38,7 @@
     padding-left: 2em;
     padding-right: 2em;
     padding-top: 1em;
-    padding-bottom: 1em;
+    padding-bottom: 2em;
     text-align: center;
 }
 
@@ -48,7 +48,7 @@
     font-size: 2em;
     font-weight: 900;
     text-align: center;
-    margin-bottom: 1em;
+    margin-bottom: 0.7em;
 }
 
 #section-work .section-content-col {
@@ -87,11 +87,15 @@
     background-color: transparent;
     border: none;
     outline: none;
-    color: #ffffffcc;
+    color: #FCFCE1cc;
     transition: transform 0.1s;
 }
 
 .icon-button:hover {
-    color: white;
+    color: #FCFCE1;
     transform: scale(1.1);
+}
+
+.card-work-content .caption {
+    margin-top: 1em;
 }

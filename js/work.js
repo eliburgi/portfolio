@@ -7,7 +7,8 @@ const myWork = [
         img: 'img/work/sQrz.png',
         githubUrl: 'TODO',
         playStoreUrl: 'TODO',
-        appStoreUrl: 'TODO'
+        appStoreUrl: 'TODO',
+        hashtags: ['#flutter', '#android', '#ios']
     },
     {
         title: 'Celery With Me',
@@ -15,50 +16,39 @@ const myWork = [
         img: 'img/work/celery_with_me.png',
         githubUrl: 'https://github.com/eliburgi/celerywithme',
         playStoreUrl: 'TODO',
+        hashtags: ['#flutter', '#android', '#ios'],
         fontFamily: 'Pacifico'
     },
     {
-        title: 'sQrz',
-        img: 'img/work/sQrz.png',
+        title: 'Today',
+        desc: 'The todo list that focuses on what is important today.',
+        img: 'img/work/today.png',
+        githubUrl: 'https://github.com/eliburgi/celerywithme',
+        playStoreUrl: 'TODO',
+        hashtags: ['#flutter', '#android', '#ios']
+    },
+    {
+        title: 'Butterfly',
+        desc: 'Become the best version of you. Day by day.',
+        img: 'img/work/butterfly.png',
+        githubUrl: 'https://github.com/eliburgi/celerywithme',
+        playStoreUrl: 'TODO',
+        hashtags: ['#flutter', '#android', '#ios'],
+        fontFamily: 'Pacifico'
+    },
+    {
+        title: 'gOOse',
+        desc: 'Prototype for a tinder-like news application.',
+        img: 'img/work/goose.gif',
+        githubUrl: 'TODO',
+        hashtags: ['#flutter', '#prototype', '#tinder-cards']
+    },
+    {
+        title: 'nmbrz',
+        desc: 'Number trivia app. Explore the meaning of numbers.',
+        img: 'img/work/nmbrz.png',
         githubUrl: 'TODO',
         appStoreUrl: 'TODO'
-    },
-    {
-        title: 'Celery With Me',
-        fontFamily: 'Pacifico',
-        img: 'img/work/celery_with_me.png',
-        githubUrl: 'TODO'
-    },
-    {
-        title: 'sQrz',
-        img: 'img/work/sQrz.png'
-    },
-    {
-        title: 'Celery With Me',
-        fontFamily: 'Pacifico',
-        img: 'img/work/celery_with_me.png'
-    },
-    {
-        title: 'sQrz',
-        img: 'img/work/sQrz.png'
-    },
-    {
-        title: 'Celery With Me',
-        fontFamily: 'Pacifico',
-        img: 'img/work/celery_with_me.png'
-    },
-    {
-        title: 'sQrz',
-        img: 'img/work/sQrz.png'
-    },
-    {
-        title: 'Celery With Me',
-        fontFamily: 'Pacifico',
-        img: 'img/work/celery_with_me.png'
-    },
-    {
-        title: 'sQrz',
-        img: 'img/work/sQrz.png'
     }
 ];
 
@@ -92,9 +82,21 @@ function _buildWorkCard(work) {
     content.appendChild(title);
 
     if (work.desc) {
-        content.innerHTML += work.desc;
-    } else {
-        content.innerHTML += "adsad <br> adsda <br> asd <br> adsad <br> adsda <br> asd";
+        var description = document.createElement('p');
+        description.innerHTML = work.desc;
+        content.appendChild(description);
+    }
+
+    if (work.hashtags) {
+        var hashtags = document.createElement('p');
+        hashtags.setAttribute('class', 'caption');
+        for(var i = 0; i < work.hashtags.length; i++) {
+            if(i > 0) {
+                hashtags.innerHTML += ' '
+            }
+            hashtags.innerHTML += work.hashtags[i];
+        }
+        content.appendChild(hashtags);
     }
 
     var overlay = document.createElement('div');
@@ -108,7 +110,7 @@ function _buildWorkCard(work) {
     if (work.githubUrl) {
         var githubButton = document.createElement('button');
         githubButton.setAttribute('class', 'icon-button');
-        githubButton.onclick = function () { 
+        githubButton.onclick = function () {
             _launchUrl(work.githubUrl);
         };
         overlayContent.appendChild(githubButton);
@@ -120,7 +122,7 @@ function _buildWorkCard(work) {
     if (work.playStoreUrl) {
         var googlePlayButton = document.createElement('button');
         googlePlayButton.setAttribute('class', 'icon-button');
-        googlePlayButton.onclick = function () { 
+        googlePlayButton.onclick = function () {
             _launchUrl(work.playStoreUrl);
         };
         overlayContent.appendChild(googlePlayButton);
@@ -132,7 +134,7 @@ function _buildWorkCard(work) {
     if (work.appStoreUrl) {
         var appStoreButton = document.createElement('button');
         appStoreButton.setAttribute('class', 'icon-button');
-        appStoreButton.onclick = function () { 
+        appStoreButton.onclick = function () {
             _launchUrl(work.appStoreUrl);
         };
         overlayContent.appendChild(appStoreButton);
