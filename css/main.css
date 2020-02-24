@@ -66,8 +66,8 @@ section {
         that are drawn below the title are not that distracting
     */
     background: radial-gradient(
-        rgba(0, 0, 40, 0.5), 
-        rgba(0, 0, 40, 0.0)
+        rgba(37, 44, 74, 0.5), 
+        rgba(37, 44, 74, 0.0)
     );
 }
 

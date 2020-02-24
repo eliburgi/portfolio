@@ -1,5 +1,5 @@
 // canvas background color
-const kBackgroundColor = 0x000028;
+const kBackgroundColor = 0x252C4A; // 0x000028;
 // number of dots that will be created
 const kInitialDotCount = 50;
 // if true, the dots interact with the mouse (cursor position)
