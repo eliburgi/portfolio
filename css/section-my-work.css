@@ -5,8 +5,8 @@
     float: left;
     /* margin between cards */
     margin: 2em;
-    min-width: 200px;
-    min-height: 200px;
+    min-width: 15em;
+    min-height: 20em;
     max-width: 20em;
     border-radius: 0.5em;
     color: #FCFCE1;
@@ -42,22 +42,6 @@
     text-align: center;
 }
 
-.card-work-overlay {
-    position: absolute;
-    width: 100%;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #000028cc;
-    overflow: hidden;
-    height: 0;
-    transition: .3s ease;
-}
-
-.card-work:hover .card-work-overlay {
-    height: 100%;
-}
-
 .card-work h1 {
     color: #FCFCE1;
     font-family: 'Raleway';
@@ -71,4 +55,43 @@
     position: flex;
     /* TODO */
     overflow: visible;
+}
+
+.card-work-overlay {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000028dd;
+    overflow: hidden;
+    height: 0;
+    transition: .3s ease;
+}
+
+.card-work:hover .card-work-overlay {
+    height: 100%;
+}
+
+.overlay-content {
+    /* center vertically */
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    /* space child elements evenly horizontal */
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.icon-button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #ffffffcc;
+    transition: transform 0.1s;
+}
+
+.icon-button:hover {
+    color: white;
+    transform: scale(1.1);
 }
