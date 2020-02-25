@@ -60,17 +60,17 @@ myWork.forEach(function (work) {
 
 function _buildWorkCard(work) {
     var card = document.createElement('div');
-    card.setAttribute('class', 'card-work');
+    card.setAttribute('class', 'work-card');
 
     if (work.img) {
         var bgImg = document.createElement('div');
-        bgImg.setAttribute('class', 'card-work-bg');
+        bgImg.setAttribute('class', 'work-card-img');
         bgImg.style.backgroundImage = "url(\'" + work.img + "\')";
         card.appendChild(bgImg);
     }
 
     var content = document.createElement('div');
-    content.setAttribute('class', 'card-work-content');
+    content.setAttribute('class', 'work-card-body');
     card.appendChild(content);
 
     var title = document.createElement('h1');
@@ -100,11 +100,11 @@ function _buildWorkCard(work) {
     }
 
     var overlay = document.createElement('div');
-    overlay.setAttribute('class', 'card-work-overlay');
+    overlay.setAttribute('class', 'work-card-overlay');
     card.appendChild(overlay);
 
     var overlayContent = document.createElement('div');
-    overlayContent.setAttribute('class', 'overlay-content');
+    overlayContent.setAttribute('class', 'work-card-overlay-content');
     overlay.appendChild(overlayContent);
 
     if (work.githubUrl) {

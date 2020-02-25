@@ -1,24 +1,45 @@
+/* contains all work cards */
+#section-work .section-content-col {
+    position: flex;
+    /* TODO */
+    overflow: visible;
+}
 
 /* a card displaying information about a certain work of mine*/
-.card-work {
+.work-card {
     position: relative;
     float: left;
+
     /* margin between cards */
     margin: 2em;
+
+    /* sizing */
     min-width: 15em;
     min-height: 20em;
+    height: 23em;
     max-width: 20em;
+
+    
     border-radius: 0.5em;
     color: #FCFCE1;
     background-color: #2C3350dd;
     transition: transform 0.1s;
 }
 
-.card-work:hover {
+.work-card:hover {
     transform: scale(1.1);
 }
 
-.card-work-bg {
+.work-card h1 {
+    color: #FCFCE1;
+    font-family: 'Raleway';
+    font-size: 2em;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 0.7em;
+}
+
+.work-card-img {
     height: 10em;
     width: 100%;
     border-top-left-radius: 0.5em;
@@ -27,11 +48,11 @@
     background-size: cover;
 }
 
-.card-work:hover .card-work-bg {
+.work-card:hover .work-card-img {
     opacity: 0.45;
 }
 
-.card-work-content {
+.work-card-body {
     width: 100%;
     min-height: 12em;
     box-sizing: border-box;
@@ -42,22 +63,11 @@
     text-align: center;
 }
 
-.card-work h1 {
-    color: #FCFCE1;
-    font-family: 'Raleway';
-    font-size: 2em;
-    font-weight: 900;
-    text-align: center;
-    margin-bottom: 0.7em;
+.work-card-body .caption {
+    margin-top: 1em;
 }
 
-#section-work .section-content-col {
-    position: flex;
-    /* TODO */
-    overflow: visible;
-}
-
-.card-work-overlay {
+.work-card-overlay {
     position: absolute;
     width: 100%;
     left: 0;
@@ -70,11 +80,11 @@
     transition: .3s ease;
 }
 
-.card-work:hover .card-work-overlay {
+.work-card:hover .work-card-overlay {
     height: 100%;
 }
 
-.overlay-content {
+.work-card-overlay-content {
     /* center vertically */
     position: relative;
     top: 50%;
@@ -97,6 +107,3 @@
     transform: scale(1.1);
 }
 
-.card-work-content .caption {
-    margin-top: 1em;
-}

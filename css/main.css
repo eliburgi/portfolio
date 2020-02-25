@@ -1,10 +1,11 @@
 /* CONTAINS STYLES SHARED ACROSS THE WHOLE WEBSITE */
 
-/* remove default padding and margin of all HTML elements */ 
 * {
+    /* remove default padding and margin of all HTML elements */ 
     padding: 0;
     margin: 0;
 
+    /* default body font */
     font-family: 'Open Sans';
     font-size: 1em;
 }
@@ -71,6 +72,7 @@ section {
     );
 }
 
+/* small caption text */
 .caption {
     font-size: small;
 }
