@@ -9,20 +9,34 @@
 
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/section-header.css">
+    <link rel="stylesheet" type="text/css" href="css/section-my-work.css">
+    <script src="https://use.fontawesome.com/f868d1b2e2.js"></script>
     <script src="js/pixi.min.js"></script>
 </head>
 
 <body>
-    <section>
-        <div class="section-title">
-            <h1>Hi.</h1>
-            <h1>I strive for excellence.</h1>
-            <h1>Ohh, and I develop apps.</h1>
+    <section id="section-header">
+        <div class="section-title-col">
+            <div class="section-title">
+                <h1>Hi.</h1>
+                <h1>I strive for excellence.</h1>
+                <h1>Ohh, and I develop apps.</h1>
+            </div>
         </div>
+    </section>
+
+    <section id="section-work">
+        <div class="section-title-col">
+            <div class="section-title">
+                <h1>My Work.</h1>
+            </div>
+        </div>
+        <div id="my-work-container" class="section-content-col"></div>
     </section>
 
     <div id="canvas-container"></div>
     <script src="js/teleporting-dots.js"></script>
+    <script src="js/work.js"></script>
 </body>
 
 </html>

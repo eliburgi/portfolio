@@ -1,0 +1,109 @@
+/* contains all work cards */
+#section-work .section-content-col {
+    position: flex;
+    /* TODO */
+    overflow: visible;
+}
+
+/* a card displaying information about a certain work of mine*/
+.work-card {
+    position: relative;
+    float: left;
+
+    /* margin between cards */
+    margin: 2em;
+
+    /* sizing */
+    min-width: 15em;
+    min-height: 20em;
+    height: 23em;
+    max-width: 20em;
+
+    
+    border-radius: 0.5em;
+    color: #FCFCE1;
+    background-color: #2C3350dd;
+    transition: transform 0.1s;
+}
+
+.work-card:hover {
+    transform: scale(1.1);
+}
+
+.work-card h1 {
+    color: #FCFCE1;
+    font-family: 'Raleway';
+    font-size: 2em;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 0.7em;
+}
+
+.work-card-img {
+    height: 10em;
+    width: 100%;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+    transition: opacity 0.1s;
+    background-size: cover;
+}
+
+.work-card:hover .work-card-img {
+    opacity: 0.45;
+}
+
+.work-card-body {
+    width: 100%;
+    min-height: 12em;
+    box-sizing: border-box;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-top: 1em;
+    padding-bottom: 2em;
+    text-align: center;
+}
+
+.work-card-body .caption {
+    margin-top: 1em;
+}
+
+.work-card-overlay {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 0.5em;
+    background-color: #252C4Add;
+    overflow: hidden;
+    height: 0;
+    transition: .3s ease;
+}
+
+.work-card:hover .work-card-overlay {
+    height: 100%;
+}
+
+.work-card-overlay-content {
+    /* center vertically */
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    /* space child elements evenly horizontal */
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.icon-button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #FCFCE1cc;
+    transition: transform 0.1s;
+}
+
+.icon-button:hover {
+    color: #FCFCE1;
+    transform: scale(1.1);
+}
+

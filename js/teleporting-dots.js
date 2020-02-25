@@ -1,5 +1,5 @@
 // canvas background color
-const kBackgroundColor = 0x000028;
+const kBackgroundColor = 0x252C4A; // 0x000028;
 // number of dots that will be created
 const kInitialDotCount = 50;
 // if true, the dots interact with the mouse (cursor position)
@@ -160,7 +160,7 @@ function updateDots(dt) {
         } else {
             // with some chance select a completely new
             // random target for the dot within the canvas
-            let probability = 0.005;
+            let probability = 0.001;
             if (random(0, 1) < probability) {
                 let x = randomX();
                 let y = randomY();
@@ -185,7 +185,7 @@ document.getElementById("canvas-container").appendChild(app.view);
 app.renderer.backgroundColor = kBackgroundColor;
 
 // make the canvas fill the entire window
-app.renderer.view.style.position = "absolute";
+app.renderer.view.style.position = "fixed";
 app.renderer.view.style.display = "block";
 app.renderer.resize(window.innerWidth, window.innerHeight);
 app.renderer.autoDensity = true;
