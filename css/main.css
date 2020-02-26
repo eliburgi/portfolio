@@ -76,3 +76,32 @@ section {
 .caption {
     font-size: small;
 }
+
+#navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    list-style-type: none;
+    width: 100vw;
+    width: 100%;
+    color: #FCFCE1cc; 
+    font-family: 'Open Sans';
+    font-size: 1em;  
+
+    box-sizing: border-box;
+    padding-right: 1em;
+    padding-top: 1em;
+}
+
+#navbar li {
+    display: block;
+    float: right;
+    padding: 1em;
+    box-sizing: border-box;
+}
+
+#navbar li:hover {
+    color: #FCFCE1;
+    cursor: pointer;
+}
