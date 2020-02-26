@@ -15,11 +15,11 @@
 </head>
 
 <body>
-    <ul id="navbar">
-        <li>About Me.</li>
-        <li>My Work.</li>
-        <li>My Services.</li>
-    </ul>
+    <nav id="navbar">
+        <a href="#section-about" class="scrollTo">About Me.</a>
+        <a href="#section-work" class="scrollTo">My Work.</a>
+        <a href="#section-services" class="scrollTo">My Services.</a>
+    </nav>
 
     <section id="section-header">
         <div class="section-title-col">
@@ -31,6 +31,15 @@
         </div>
     </section>
 
+    <section id="section-services">
+        <div class="section-title-col">
+            <div class="section-title">
+                <h1>My Services.</h1>
+            </div>
+        </div>
+        <div id="my-services-container" class="section-content-col"></div>
+    </section>
+
     <section id="section-work">
         <div class="section-title-col">
             <div class="section-title">
@@ -40,14 +49,14 @@
         <div id="my-work-container" class="section-content-col"></div>
     </section>
 
-    <section id="section-contact">
-        <div class="section-title-col">
-            <div class="section-title">
-                <h1>Lets Talk.</h1>
+    <section id="section-about">
+            <div class="section-title-col">
+                <div class="section-title">
+                    <h1>About Me.</h1>
+                </div>
             </div>
-        </div>
-        <div id="my-work-container" class="section-content-col"></div>
-    </section>
+            <div id="about-me-container" class="section-content-col"></div>
+        </section>
 
     <div id="canvas-container"></div>
     <script src="js/teleporting-dots.js"></script>
