@@ -1,0 +1,22 @@
+
+#section-working-with-me .section-content-col {
+    padding: 0;
+}
+
+#working-with-me-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: burlywood;
+}
+
+.passion-col {
+    background-color: red;
+}
+
+.communication-col {
+    background-color: blue;
+}
+
+.pricing-col {
+    background-color: green;
+}
