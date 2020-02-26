@@ -10,6 +10,10 @@
     font-size: 1em;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 h1 {
     color: #FCFCE1;
     font-family: 'Raleway';
@@ -75,4 +79,31 @@ section {
 /* small caption text */
 .caption {
     font-size: small;
+}
+
+#navbar {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    width: 100%;
+    font-family: 'Open Sans';
+    font-size: 1em;  
+
+    box-sizing: border-box;
+    padding-right: 1em;
+    padding-top: 1em;
+}
+
+#navbar a {
+    text-decoration: none;
+    color: #FCFCE1cc; 
+    display: block;
+    float: right;
+    padding: 1em;
+    box-sizing: border-box;
+}
+
+#navbar a:hover {
+    color: #FCFCE1;
+    cursor: pointer;
 }
