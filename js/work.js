@@ -39,7 +39,7 @@ const myWork = [
     {
         title: 'gOOse',
         desc: 'Prototype for a tinder-like news application.',
-        img: 'img/work/goose.gif',
+        img: 'img/work/goose.png',
         githubUrl: 'TODO',
         hashtags: ['#flutter', '#prototype', '#tinder-cards']
     },
