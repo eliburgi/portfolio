@@ -1,0 +1,64 @@
+
+.fancy-col {
+    background: radial-gradient(#252C4A, #252C4A00);
+}
+
+.fancy-col-header {
+    position: relative;
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+}
+
+.fancy-col-header-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-90%) translateY(-70%);
+    color: #252C4A;
+}
+
+.fancy-col-header-title {
+    /* position bottom right */
+    position: absolute;
+    bottom: 15%;
+    right: -80%;
+
+    /* enforce text in single line */
+    white-space: nowrap;
+    
+    /* TODO: refactor text styles globally! */
+    color: #FCFCE1;
+    font-family: 'Raleway';
+    font-size: 1.7em;
+    font-weight: 900;
+}
+
+.fancy-col-body {
+    padding-left: 1em;
+    padding-top: 2em;
+    width: 80%;
+
+    text-align: justify;
+
+    /* TODO: refactor text styles globally! */
+    color: #FCFCE1;
+    font-family: 'Open Sans';
+    font-size: 1em;
+}
+
+.fancy-col-body p {
+    padding-top: 1em;
+}
+
+.fancy-col-caption {
+    padding-top: 2em;
+    padding-left: 1em;
+    width: 80%;
+    text-align: justify;
+
+    /* TODO: refactor text styles globally! */
+    color: #FCFCE177;
+    font-family: 'Open Sans';
+    font-size: small;
+}
