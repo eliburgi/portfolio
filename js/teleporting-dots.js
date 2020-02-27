@@ -4,8 +4,7 @@ const kBackgroundColor = 0x252C4A; // 0x000028;
 const kInitialDotCount = 50;
 // if true, the dots interact with the mouse (cursor position)
 const kEnableMouseControls = false;
-// probability that a random, not moving dot will teleport
-// in a frame 
+// probability that a random, not moving dot will teleport in a frame 
 const kTeleportProbability = 0.0007;
 
 // the PIXI application

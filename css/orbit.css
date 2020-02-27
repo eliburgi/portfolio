@@ -3,7 +3,7 @@
     position: relative;
     width: 100%;
     padding-top: 100%; /* 1:1 aspect ratio */
-    border-color: #2E365B;
+    border-color: #2E365Bcc;
     border-style: solid;
     border-width: 0.7em;
     border-radius: 50%; /* gives a circle */
