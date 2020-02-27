@@ -1,12 +1,16 @@
 /* CONTAINS STYLES ONLY USED BY HEADER-SECTION */
 
-/* the header title should fill the whole screen */
-#section-header .section-title-col {
-    width: 100%;
-}
-
 /* fix for making the background gradient fill only the 
 area where there is text and not the whole width of the screen */
 #section-header .section-title {
-    width: 50%;
+    /* enforce text in single line */
+    white-space: nowrap;
+}
+
+#section-header img {
+    position: relative;
+    height: 80%;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
 }
