@@ -1,0 +1,23 @@
+
+/*#section-working-with-me .section-content-col {
+    padding: 0;
+}*/
+
+#working-with-me-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.passion-col {
+    padding: 1em;
+    padding-top: 100%;
+}
+
+.communication-col {
+    padding: 1em;
+}
+
+.pricing-col {
+    padding: 1em;
+    padding-top: 100%;
+}
