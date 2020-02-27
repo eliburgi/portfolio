@@ -1,0 +1,19 @@
+/* TODO: remove padding of my services section content */
+
+#my-services-container {
+    padding-top: 10em;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.android-ios-col {
+    padding: 1em;
+}
+
+.full-stack-col {
+    padding: 1em;
+}
+
+.ux-ui-col {
+    padding: 1em;
+}
