@@ -12,7 +12,7 @@ area where there is text and not the whole width of the screen */
     background: radial-gradient(#252C4A, #252C4A00);
 }
 
-.front-app-screen {
+#front-app-screen {
     position: absolute;
     height: 70%;
     top: 50%;
@@ -21,7 +21,7 @@ area where there is text and not the whole width of the screen */
     z-index: 10;
 }
 
-.left-app-screen {
+#left-app-screen {
     position: absolute;
     height: 70%;
     top: 50%;
@@ -31,12 +31,12 @@ area where there is text and not the whole width of the screen */
     transition: opacity 0.2s;
 }
 
-.left-app-screen:hover {
+#left-app-screen:hover {
     opacity: 0.5;
     cursor: pointer;
 }
 
-.right-app-screen {
+#right-app-screen {
     position: absolute;
     height: 70%;
     top: 50%;
@@ -46,7 +46,7 @@ area where there is text and not the whole width of the screen */
     transition: opacity 0.2s;
 }
 
-.right-app-screen:hover {
+#right-app-screen:hover {
     opacity: 0.5;
     cursor: pointer;
 }
