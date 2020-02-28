@@ -84,7 +84,7 @@ section {
 }
 
 #navbar {
-    z-index: 10;
+    z-index: 12;
     position: fixed;
     top: 0;
     width: 100vw;
