@@ -9,6 +9,7 @@ area where there is text and not the whole width of the screen */
 
 #section-header .section-content-col {
     position: relative;
+    background: radial-gradient(#252C4A, #252C4A00);
 }
 
 .front-app-screen {
