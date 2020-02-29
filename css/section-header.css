@@ -16,19 +16,12 @@ area where there is text and not the whole width of the screen */
     position: absolute;
     height: 70%;
     top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    z-index: 10;
 }
 
 #left-app-screen {
     position: absolute;
     height: 70%;
     top: 50%;
-    left: 30%;
-    transform: translateX(-50%) translateY(-50%) scale(0.8);
-    opacity: 0.3;
-    transition: opacity 0.2s;
 }
 
 #left-app-screen:hover {
@@ -40,14 +33,141 @@ area where there is text and not the whole width of the screen */
     position: absolute;
     height: 70%;
     top: 50%;
+}
+
+#right-app-screen:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+#tmp-app-screen {
+    position: absolute;
+    height: 70%;
+    top: 50%;
+}
+
+.left-app-screen {
+    left: 30%;
+    transform: translateX(-50%) translateY(-50%) scale(0.8);
+    opacity: 0.3;
+    transition: opacity 0.2s;
+}
+
+.front-app-screen {
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 10;
+}
+
+.right-app-screen {
     left: 70%;
     transform: translateX(-50%) translateY(-50%) scale(0.8);
     opacity: 0.3;
     transition: opacity 0.2s;
 }
 
-#right-app-screen:hover {
-    opacity: 0.5;
-    cursor: pointer;
+.tmp-app-screen {
+    visibility: hidden;
+}
+
+@keyframes left-disappear {
+    0% { 
+        left: 30%;
+        transform: translateX(-50%) translateY(-50%) scale(0.8);
+        opacity: 0.3;
+    }
+    100% {         
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%) scale(0.0);
+        opacity: 0.0;
+    }
+}
+
+.left-disappear {
+    animation-name: left-disappear;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+
+    visibility: visible;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%) scale(0.0);
+    opacity: 0.0;
+    z-index: 0;
+}
+
+@keyframes front-rotate-left-anim {
+    0% { 
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        opacity: 1.0;
+    }
+    100% {         
+        left: 30%;
+        transform: translateX(-50%) translateY(-50%) scale(0.8);
+        opacity: 0.3;
+    }
+}
+
+.front-rotate-left {
+    animation-name: front-rotate-left-anim;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+
+    left: 30%;
+    transform: translateX(-50%) translateY(-50%) scale(0.8);
+    opacity: 0.3;
+    z-index: 1;
+}
+
+@keyframes right-rotate-left-anim {
+    0% { 
+        left: 70%;
+        transform: translateX(-50%) translateY(-50%) scale(0.8);
+        opacity: 0.9;
+        z-index: 10;
+    }
+    100% {         
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        opacity: 1.0;
+        z-index: 10;
+    }
+}
+
+.right-rotate-left {
+    animation-name: right-rotate-left-anim;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    opacity: 1.0;
+    z-index: 10;
+}
+
+@keyframes right-appear {
+    0% { 
+        left: 30%;
+        transform: translateX(-50%) translateY(-50%) scale(0.0);
+        opacity: 0.0;
+        z-index: 0;
+    }
+    100% {         
+        left: 70%;
+        transform: translateX(-50%) translateY(-50%) scale(0.8);
+        opacity: 0.3;
+        z-index: 0;
+    }
+}
+
+.right-appear {
+    animation-name: right-appear;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+
+    left: 70%;
+    transform: translateX(-50%) translateY(-50%) scale(0.8);
+    opacity: 0.3;
+    z-index: 0;
 }
 
