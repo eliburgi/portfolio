@@ -22,20 +22,33 @@ _updateScreens();
 function _rotateRight() {
     _frontIndex = _leftIndex();
 
-    /* TODO: animate change */ 
-    // front -> right
-    // left -> front
-    // right -> left and gets new img
-    // _updateScreens();
+    tmpScreenImg.setAttribute('src', rightScreenImg.getAttribute('src'));
+    _updateScreens();
+
+    /* hack to restart animation everytime this function is called */ 
+    /* source: https://css-tricks.com/restart-css-animation/ */ 
+    tmpScreenImg.classList.remove('right-disappear');
+    void tmpScreenImg.offsetWidth;
+    tmpScreenImg.classList.add('right-disappear');
+
+    leftScreenImg.classList.remove('left-appear');
+    void leftScreenImg.offsetWidth;
+    leftScreenImg.classList.add('left-appear');
+
+    frontScreenImg.classList.remove('left-rotate-right');
+    void frontScreenImg.offsetWidth;
+    frontScreenImg.classList.add('left-rotate-right');
+
+    rightScreenImg.classList.remove('front-rotate-right');
+    void rightScreenImg.offsetWidth;
+    rightScreenImg.classList.add('front-rotate-right');
 }
 
 function _rotateLeft() {
     _frontIndex = _rightIndex();
 
-    tmpScreenImg.setAttribute('src', kAppScreens[_leftIndex()]);
-    leftScreenImg.setAttribute('src', kAppScreens[_leftIndex()]);
-    frontScreenImg.setAttribute('src', kAppScreens[_frontIndex]);
-    rightScreenImg.setAttribute('src', kAppScreens[_rightIndex()]);
+    tmpScreenImg.setAttribute('src', leftScreenImg.getAttribute('src'));
+    _updateScreens();
 
     /* hack to restart animation everytime this function is called */ 
     /* source: https://css-tricks.com/restart-css-animation/ */ 
