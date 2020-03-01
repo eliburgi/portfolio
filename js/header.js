@@ -27,19 +27,19 @@ function _rotateRight() {
 
     /* hack to restart animation everytime this function is called */ 
     /* source: https://css-tricks.com/restart-css-animation/ */ 
-    tmpScreenImg.classList.remove('right-disappear');
+    tmpScreenImg.className = "";
     void tmpScreenImg.offsetWidth;
     tmpScreenImg.classList.add('right-disappear');
 
-    leftScreenImg.classList.remove('left-appear');
+    leftScreenImg.className = "";
     void leftScreenImg.offsetWidth;
     leftScreenImg.classList.add('left-appear');
 
-    frontScreenImg.classList.remove('left-rotate-right');
+    frontScreenImg.className = "";
     void frontScreenImg.offsetWidth;
     frontScreenImg.classList.add('left-rotate-right');
 
-    rightScreenImg.classList.remove('front-rotate-right');
+    rightScreenImg.className = "";
     void rightScreenImg.offsetWidth;
     rightScreenImg.classList.add('front-rotate-right');
 }
@@ -52,19 +52,19 @@ function _rotateLeft() {
 
     /* hack to restart animation everytime this function is called */ 
     /* source: https://css-tricks.com/restart-css-animation/ */ 
-    tmpScreenImg.classList.remove('left-disappear');
+    tmpScreenImg.className = "";
     void tmpScreenImg.offsetWidth;
     tmpScreenImg.classList.add('left-disappear');
 
-    leftScreenImg.classList.remove('front-rotate-left');
+    leftScreenImg.className = "";
     void leftScreenImg.offsetWidth;
     leftScreenImg.classList.add('front-rotate-left');
 
-    frontScreenImg.classList.remove('right-rotate-left');
+    frontScreenImg.className = "";
     void frontScreenImg.offsetWidth;
     frontScreenImg.classList.add('right-rotate-left');
 
-    rightScreenImg.classList.remove('right-appear');
+    rightScreenImg.className = "";
     void rightScreenImg.offsetWidth;
     rightScreenImg.classList.add('right-appear');
 }
