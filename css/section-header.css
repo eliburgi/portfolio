@@ -1,12 +1,277 @@
 /* CONTAINS STYLES ONLY USED BY HEADER-SECTION */
 
-/* the header title should fill the whole screen */
-#section-header .section-title-col {
-    width: 100%;
-}
-
 /* fix for making the background gradient fill only the 
 area where there is text and not the whole width of the screen */
 #section-header .section-title {
-    width: 50%;
+    /* enforce text in single line */
+    white-space: nowrap;
+}
+
+#section-header .section-content-col {
+    position: relative;
+    background: radial-gradient(#252C4A, #252C4A00);
+}
+
+#front-app-screen {
+    position: absolute;
+    height: 70%;
+    top: 50%;
+}
+
+#left-app-screen {
+    position: absolute;
+    height: 70%;
+    top: 50%;
+}
+
+#left-app-screen:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+#right-app-screen {
+    position: absolute;
+    height: 70%;
+    top: 50%;
+}
+
+#right-app-screen:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+#tmp-app-screen {
+    position: absolute;
+    height: 70%;
+    top: 50%;
+}
+
+.left-app-screen {
+    left: 30%;
+    transform: translateX(-50%) translateY(-50%) scale(0.8);
+    opacity: 0.3;
+    transition: opacity 0.2s;
+}
+
+.front-app-screen {
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 10;
+}
+
+.right-app-screen {
+    left: 70%;
+    transform: translateX(-50%) translateY(-50%) scale(0.8);
+    opacity: 0.3;
+    transition: opacity 0.2s;
+}
+
+.tmp-app-screen {
+    visibility: hidden;
+}
+
+/* LEFT-ROTATION */
+
+@keyframes left-disappear {
+    0% { 
+        left: 30%;
+        transform: translateX(-50%) translateY(-50%) scale(0.8);
+        opacity: 0.3;
+    }
+    100% {         
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%) scale(0.0);
+        opacity: 0.0;
+    }
+}
+
+.left-disappear {
+    animation-name: left-disappear;
+    animation-duration: .5s;
+    animation-timing-function: ease-out;
+
+    visibility: visible;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%) scale(0.0);
+    opacity: 0.0;
+    z-index: 0;
+}
+
+@keyframes front-rotate-left-anim {
+    0% { 
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        opacity: 1.0;
+    }
+    100% {         
+        left: 30%;
+        transform: translateX(-50%) translateY(-50%) scale(0.8);
+        opacity: 0.3;
+    }
+}
+
+.front-rotate-left {
+    animation-name: front-rotate-left-anim;
+    animation-duration: .5s;
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    left: 30%;
+    transform: translateX(-50%) translateY(-50%) scale(0.8);
+    opacity: 0.3;
+    z-index: 1;
+}
+
+@keyframes right-rotate-left-anim {
+    0% { 
+        left: 70%;
+        transform: translateX(-50%) translateY(-50%) scale(0.8);
+        opacity: 0.9;
+        z-index: 10;
+    }
+    100% {         
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        opacity: 1.0;
+        z-index: 10;
+    }
+}
+
+.right-rotate-left {
+    animation-name: right-rotate-left-anim;
+    animation-duration: .5s;
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    opacity: 1.0;
+    z-index: 10;
+}
+
+@keyframes right-appear {
+    0% { 
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%) scale(0.0);
+        opacity: 0.0;
+        z-index: 0;
+    }
+    100% {         
+        left: 70%;
+        transform: translateX(-50%) translateY(-50%) scale(0.8);
+        opacity: 0.3;
+        z-index: 0;
+    }
+}
+
+.right-appear {
+    animation-name: right-appear;
+    animation-duration: .5s;
+    animation-timing-function: ease-out;
+
+    left: 70%;
+    transform: translateX(-50%) translateY(-50%) scale(0.8);
+    opacity: 0.3;
+    z-index: 0;
+}
+
+/* RIGHT-ROTATION */
+
+@keyframes right-disappear {
+    0% { 
+        left: 70%;
+        transform: translateX(-50%) translateY(-50%) scale(0.8);
+        opacity: 0.3;
+    }
+    100% {         
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%) scale(0.0);
+        opacity: 0.0;
+    }
+}
+
+.right-disappear {
+    animation-name: right-disappear;
+    animation-duration: .5s;
+    animation-timing-function: ease-out;
+
+    visibility: visible;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%) scale(0.0);
+    opacity: 0.0;
+    z-index: 0;
+}
+
+@keyframes left-appear {
+    0% { 
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%) scale(0.0);
+        opacity: 0.0;
+        z-index: 0;
+    }
+    100% {         
+        left: 30%;
+        transform: translateX(-50%) translateY(-50%) scale(0.8);
+        opacity: 0.3;
+        z-index: 0;
+    }
+}
+
+.left-appear {
+    animation-name: left-appear;
+    animation-duration: .5s;
+    animation-timing-function: ease-out;
+
+    left: 30%;
+    transform: translateX(-50%) translateY(-50%) scale(0.8);
+    opacity: 0.3;
+    z-index: 0;
+}
+
+@keyframes left-rotate-right-anim {
+    0% { 
+        left: 30%;
+        transform: translateX(-50%) translateY(-50%) scale(0.8);
+        opacity: 0.9;
+        z-index: 10;
+    }
+    100% {         
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        opacity: 1.0;
+        z-index: 10;
+    }
+}
+
+.left-rotate-right {
+    animation-name: left-rotate-right-anim;
+    animation-duration: .5s;
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    opacity: 1.0;
+    z-index: 10;
+}
+
+@keyframes front-rotate-right-anim {
+    0% { 
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        opacity: 1.0;
+    }
+    100% {         
+        left: 70%;
+        transform: translateX(-50%) translateY(-50%) scale(0.8);
+        opacity: 0.3;
+    }
+}
+
+.front-rotate-right {
+    animation-name: front-rotate-right-anim;
+    animation-duration: .5s;
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    left: 70%;
+    transform: translateX(-50%) translateY(-50%) scale(0.8);
+    opacity: 0.3;
+    z-index: 1;
 }
