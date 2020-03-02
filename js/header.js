@@ -4,6 +4,7 @@ const kAppScreens = [
     'img/header/celery-with-me.png',
     'img/header/today.png',
     'img/header/flourish.png',
+    'img/header/love.png',
     'img/header/tennis-club.png',
 ];
 
