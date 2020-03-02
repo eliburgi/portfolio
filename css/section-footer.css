@@ -1,0 +1,21 @@
+
+#section-footer {
+    height: 10em;
+}
+
+#section-footer p {
+    position: relative;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #565E81;
+    font-family: 'Open Sans';
+    font-size: 1em;
+    font-weight: 300;
+    background: radial-gradient(#252C4A, #252C4A00);
+}
+
+#section-footer a {
+    color: #FCFCE1;
+}

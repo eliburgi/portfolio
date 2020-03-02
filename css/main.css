@@ -110,3 +110,33 @@ section {
     color: #FCFCE1;
     cursor: pointer;
 }
+
+.contact-button {
+    width: 13em;
+    height: 3.7em;
+    background: linear-gradient(-45deg, #FC4F6A, #B56DF4);
+    border-radius: 100em;
+    text-align: center;
+    transition: transform .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    color: #FCFCE1;
+    text-align: center;
+    font-family: 'Open Sans';
+    font-size: 1.3em;
+    font-weight: 700;
+    border: none;
+    padding: 0;
+}
+
+.contact-button a {
+    display: block;
+    position: relative;
+    top: 50%;
+    color: #FCFCE1;
+    transform: translateY(-50%);
+    
+}
+
+.contact-button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
