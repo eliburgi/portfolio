@@ -12,6 +12,10 @@ area where there is text and not the whole width of the screen */
     background: radial-gradient(#252C4A, #252C4A00);
 }
 
+#section-header .contact-button {
+    margin-top: 3em;
+}
+
 #front-app-screen {
     position: absolute;
     height: 70%;

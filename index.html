@@ -14,17 +14,17 @@
     <link rel="stylesheet" type="text/css" href="css/section-my-services.css">
     <link rel="stylesheet" type="text/css" href="css/section-my-work.css">
     <link rel="stylesheet" type="text/css" href="css/section-working-with-me.css">
+    <link rel="stylesheet" type="text/css" href="css/section-footer.css">
     <script src="https://use.fontawesome.com/f868d1b2e2.js"></script>
     <script src="js/pixi.min.js"></script>
 </head>
 
 <body>
     <nav id="navbar">
-        <a href="#section-about" class="scrollTo">About Me.</a>
         <a href="#section-working-with-me" class="scrollTo">Working With Me.</a>
         <a href="#section-work" class="scrollTo">My Work.</a>
         <a href="#section-services" class="scrollTo">My Services.</a>
-        <a href="#section-header" class="scrollTo">Header.</a>
+        <a href="#section-header" class="scrollTo">Lets Talk.</a>
     </nav>
 
     <section id="section-header">
@@ -33,13 +33,18 @@
                 <h1>Hi.</h1>
                 <h1>I strive for excellence.</h1>
                 <h1>Ohh, and I develop apps.</h1>
+                <a href="mailto:elias.burgstaller@gmx.at">
+                    <button class="contact-button">
+                        LETS TALK
+                    </button>
+                </a>
             </div>
         </div>
         <div id="app-screens-gallery" class="section-content-col">
-            <img id="left-app-screen" class="left-app-screen"/>
-            <img id="front-app-screen" class="front-app-screen"/>
-            <img id="right-app-screen" class="right-app-screen"/>
-            <img id="tmp-app-screen" class="tmp-app-screen"/>
+            <img id="left-app-screen" class="left-app-screen" />
+            <img id="front-app-screen" class="front-app-screen" />
+            <img id="right-app-screen" class="right-app-screen" />
+            <img id="tmp-app-screen" class="tmp-app-screen" />
         </div>
     </section>
 
@@ -219,13 +224,11 @@
         </div>
     </section>
 
-    <section id="section-about">
-        <div class="section-title-col">
-            <div class="section-title">
-                <h1>About Me.</h1>
-            </div>
-        </div>
-        <div id="about-me-container" class="section-content-col"></div>
+    <section id="section-footer">
+        <p>
+            Made with ❤️ by Elias Burgstaller <br>
+            Feel free to contact me at <a>elias.burgstaller@gmx.at</a>
+        </p>
     </section>
 
     <div id="canvas-container"></div>
