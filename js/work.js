@@ -1,6 +1,6 @@
 
 // TODO: 
-const myWork = [
+const _kWorkList = [
     {
         title: 'sQrz',
         desc: 'A highly addictive puzzle-game.',
@@ -53,12 +53,12 @@ const myWork = [
 ];
 
 var workContainer = document.getElementById('my-work-container');
-myWork.forEach(function (work) {
-    let card = _buildWorkCard(work);
+for (var i = 0; i < _kWorkList.length; i++) {
+    let card = _buildWorkCard(_kWorkList[i], i);
     workContainer.appendChild(card);
-});
+}
 
-function _buildWorkCard(work) {
+function _buildWorkCard(work, index) {
     var card = document.createElement('div');
     card.setAttribute('class', 'work-card');
 
@@ -90,8 +90,8 @@ function _buildWorkCard(work) {
     if (work.hashtags) {
         var hashtags = document.createElement('p');
         hashtags.setAttribute('class', 'caption');
-        for(var i = 0; i < work.hashtags.length; i++) {
-            if(i > 0) {
+        for (var i = 0; i < work.hashtags.length; i++) {
+            if (i > 0) {
                 hashtags.innerHTML += ' '
             }
             hashtags.innerHTML += work.hashtags[i];
@@ -142,6 +142,10 @@ function _buildWorkCard(work) {
         appStoreIcon.setAttribute('class', 'fa fa-apple fa-3x');
         appStoreButton.appendChild(appStoreIcon);
     }
+
+    /* animate on scroll */
+    card.setAttribute('data-aos', 'zoom-in');
+    card.setAttribute('data-aos-delay', index * 100);
 
     return card;
 }
