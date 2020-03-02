@@ -7,6 +7,10 @@
     border-style: solid;
     border-width: 0.7em;
     border-radius: 50%; /* gives a circle */
+    background: radial-gradient(
+        rgba(37, 44, 74, 0.5), 
+        rgba(37, 44, 74, 0.0)
+    );
 }
 
 .orbit-content {
