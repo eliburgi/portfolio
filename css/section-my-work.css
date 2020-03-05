@@ -1,7 +1,10 @@
-/* contains all work cards */
+#section-work {
+    height: min-content;
+    min-height: 100vh;
+}
+
 #section-work .section-content-col {
     position: flex;
-    /* TODO */
     overflow: visible;
 }
 
