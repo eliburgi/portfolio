@@ -1,7 +1,9 @@
-/* contains all work cards */
+#section-work {
+    height: min-content;
+}
+
 #section-work .section-content-col {
     position: flex;
-    /* TODO */
     overflow: visible;
 }
 

@@ -49,6 +49,20 @@ const _kWorkList = [
         img: 'img/work/nmbrz.png',
         githubUrl: 'TODO',
         appStoreUrl: 'TODO'
+    },
+    {
+        title: 'gOOse',
+        desc: 'Prototype for a tinder-like news application.',
+        img: 'img/work/goose.png',
+        githubUrl: 'TODO',
+        hashtags: ['#flutter', '#prototype', '#tinder-cards']
+    },
+    {
+        title: 'nmbrz',
+        desc: 'Number trivia app. Explore the meaning of numbers.',
+        img: 'img/work/nmbrz.png',
+        githubUrl: 'TODO',
+        appStoreUrl: 'TODO'
     }
 ];
 
